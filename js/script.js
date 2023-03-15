@@ -49,14 +49,13 @@ createApp({
 
         cambiaImmagine(nuovoIndiceAttivo) {
             this.indiceAttivo = nuovoIndiceAttivo;
+        },
+        aggiungiActive(indice) {
+            if (indice == this.indiceAttivo) {
+                return "active";
+            }
+            return "";
         }
-
-
-
-
-
-
-
 
     }
 }).mount('#app')
