@@ -43,21 +43,14 @@ createApp({
             this.indiceAttivo++;
             if (this.indiceAttivo == this.slides.length) {
                 this.indiceAttivo = 0
-
             }
-
         },
-
-
-
-
-
-
-
+        prev() {
+            this.indiceAttivo--;
+            if (this.indiceAttivo < 0) {
+                this.indiceAttivo = this.slides.length - 1
+            }
+        },
 
     }
 }).mount('#app')
-
-
-
-slides.lenght
