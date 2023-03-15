@@ -3,6 +3,8 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            autoplayAttivo: true,
+            autopaly: null,
 
             indiceAttivo: 0,
 
@@ -56,15 +58,43 @@ createApp({
             }
             return "";
         },
-        autoPlay() {
-            setInterval(this.next, 3000);
+
+        stopInterval() {
+            if (this.autoplayAttivo) {
+                clearInterval(this.autopaly);
+                this.autoplayAttivo = false;
+            }
+        },
+        restartInterval() {
+            if (!this.autoplayAttivo) {
+                this.autopaly = setInterval(this.next, 1000)
+                this.autoplayAttivo = true;
+            }
         }
 
     },
 
     mounted() {
-        this.autoPlay(),
-        console.log(`the component is now mounted.`)
+
+        this.autopaly = setInterval(this.next, 1000);
     }
 
+
+
+
 }).mount('#app')
+
+
+
+/**
+ * fermaCaroselloDom.addEventListener('click', function () {     //al click start&stop
+
+    if (autoPlay() == null) {
+        autoPlay() = setInterval(infinito, 2000);
+    } else {
+        clearInterval(autoPlay());
+        autoPlay() = null;
+    }
+});
+
+ */
