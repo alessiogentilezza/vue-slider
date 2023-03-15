@@ -33,11 +33,6 @@ createApp({
         }
     },
 
-
-
-
-
-
     methods: {
         next() {
             this.indiceAttivo++;
@@ -51,6 +46,17 @@ createApp({
                 this.indiceAttivo = this.slides.length - 1
             }
         },
+
+        cambiaImmagine(nuovoIndiceAttivo) {
+            this.indiceAttivo = nuovoIndiceAttivo;
+        }
+
+
+
+
+
+
+
 
     }
 }).mount('#app')
